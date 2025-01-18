@@ -7,10 +7,9 @@ from typing import List
 
 class Portico:
     """
-    Implementação de um pórtico para o cálculo de forças
-    e deslocamentos
+    Implementation of a frame structure for calculating forces
+    and displacements.
     """
-
     def __init__(self, nos: List[No], elementos: List[Elemento]):
         self.nos = nos
         self.size = 3 * len(self.nos)
