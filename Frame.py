@@ -22,6 +22,9 @@ class Portico:
         self.calcularMatrizdeForcas()
 
     def calcularMatrizRigidez(self):
+        """
+        Computes stiffness matrix for the whole structure
+        """
         for elemento in self.elementos:
             a, b = elemento.A.Id, elemento.B.Id
             self.K[3 * a - 3:3 * a, 3 * a - 3:3 * a] += elemento.K[0:3, 0:3]
@@ -30,6 +33,9 @@ class Portico:
             self.K[3 * b - 3:3 * b, 3 * b - 3:3 * b] += elemento.K[3:6, 3:6]
 
     def calcularMatrizdeForcas(self):
+        """
+        Computes force vector for the whole structure. 
+        """
         for elemento in self.elementos:
             a, b = elemento.A.Id, elemento.B.Id
             self.f[3 * a - 3:3 * a, 0:1] += elemento.f[0:3, 0:1].reshape(3, 1)
@@ -37,10 +43,7 @@ class Portico:
 
     def inserirEsforcosExternos(self, F, M, Id):
         """
-        Insere esforços externos em nó.
-        :param Id: número do nó.
-        :param F: Vetor de Força Concentrada
-        :param M: Momento em um nó.
+        Computes external forces in structure. 
         """
         self.f[3 * Id - 3, 0] += F[0]
         self.f[3 * Id - 2, 0] += F[1]
@@ -48,12 +51,10 @@ class Portico:
 
     def calcularParametrosNodais(self):
         """
-        Essa função resolve o sistema Ku = f para determinar deslocamentos
-        e giros
-        :return: dict com a solução
+        Solves the system Ku = f
         """
         K_cc = self.K
-        # impor condicoes de contorno
+        # Set constraints
         for no in self.nos:
             linha_zerada = np.zeros((1, self.size))
             coluna_zerada = np.zeros((self.size, 1))
@@ -107,10 +108,12 @@ class Portico:
                 K_cc[3 * Id - 3, 3 * Id - 3] = 1
                 self.f[3 * Id - 3, 0] = no.x_prescrito
 
-        # resolver sistema
         self.solution = np.linalg.inv(K_cc) @ self.f
 
     def posProcessamento(self):
+        """
+        System postprocessing.
+        """
         u = self.solution
         u = np.array(u, dtype='float64')[:, np.newaxis]
 

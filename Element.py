@@ -1,6 +1,6 @@
 import numpy as np
 import sympy as sp
-from No import No
+from Node import No
 from math import sqrt, sin, cos
 
 
@@ -15,7 +15,7 @@ class Elemento:
         self.A = A
         self.B = B
         self.Id = Id
-        # calculando comprimento e ângulo
+        # Angle of element with x-axis and length
         self.x = B.x - A.x
         self.y = B.y - A.y
         self.L = sqrt(self.x ** 2 + self.y ** 2)
@@ -26,7 +26,7 @@ class Elemento:
         self.p2 = p2
         self.q1 = q1
         self.q2 = q2
-        # inicializando matriz de rotação
+        # rotation matrix
         c = cos(self.alfa)
         s = sin(self.alfa)
         self.R = np.array([
@@ -37,18 +37,21 @@ class Elemento:
             [0, 0, 0, s, c, 0],
             [0, 0, 0, 0, 0, 1]
         ])
-        # variáveis para guardar os esforços calculados
+        # Normal force, shear force and bending moment.
         self.N = None
         self.V = None
         self.M = None
 
-        # inicializando matrizes de força e rigidez no sistema.
+        # Stiffness matrix and forces
         self.f = np.zeros((6, 1))
         self.K = np.zeros((6, 6))
         self.calcularMatrizdeRigidez()
         self.calcularMatrizdeForcas()
 
     def calcularMatrizdeRigidez(self):
+        """
+        Computes Stiffness matrix
+        """
         K_trelica = np.zeros((6, 6))
         for i in [0, 3]:
             for j in [0, 3]:
@@ -68,13 +71,14 @@ class Elemento:
 
     def calcularMatrizdeForcas(self):
         """
-        Calculo do vetor de forças a partir das integrais de carga distribuída.
+        Compute element force vector.
         """
         x = sp.symbols('x')
         L = self.L
         p1, p2 = self.p1, self.p2
         q1, q2 = self.q1, self.q2
-        # matriz treliça
+
+        # truss Stiffness matrix
 
         phi_a = (1-x/L)
         phi_b = x/L
@@ -88,6 +92,8 @@ class Elemento:
         f_viga = sp.Matrix(np.zeros((6, 1)))
         p = p1 + (p2 - p1) * x / L
 
+        # Beam Stiffness Matrix
+
         phi1 = (2 / L ** 3) * x ** 3 - (3 / L ** 2) * x ** 2 + 1
         phi2 = (1 / L ** 2) * x ** 3 - (2 / L) * x ** 2 + x
         phi3 = (-2 / L ** 3) * x ** 3 + (3 / L ** 2) * x ** 2
@@ -98,6 +104,7 @@ class Elemento:
         f_viga[4] += sp.integrate(phi3 * p, (x, 0, L))
         f_viga[5] += sp.integrate(phi4 * p, (x, 0, L))
 
+        
         self.f = self.R * (f_viga + f_trelica)
 
 

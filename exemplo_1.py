@@ -1,10 +1,10 @@
 import numpy as np
-from No import No
-from Elemento import Elemento
-from Portico import Portico
+from Node import No
+from Element import Elemento
+from Frame import Portico
 
-# parametros do enunciado
-E = 200 * 10 ** 9
+E = 200 * 10 ** 9 # Young Modulus
+# Structure dimensions
 d = 400 * 10 ** (-3)
 b = 140 * 10 ** (-3)
 tw = 6 * 10 ** (-3)
@@ -13,12 +13,11 @@ h = d - 2 * tf
 
 # area
 A = h * tw + 2 * tf * b
-# rigidez
+# Stiffness
 EA = E * A
-# momento de inercia
 I = 1.24204e-4
 EI = E * I
-# inicializacao dos nos e elementos
+# i
 nos = []
 elementos = []
 num1 = 3  # numero de elementos finitos antes do apoio
@@ -28,7 +27,7 @@ x2 = np.linspace(5.5, 5.5 + 2.5, num2 + 1)
 x = np.concatenate((x1, x2[1:]))
 
 
-# distribuicao linear de carga
+# linear load distribution
 def distribuicaoCarga(x):
     p1 = -90 * 10 ** 3
     p2 = -30 * 10 ** 3
