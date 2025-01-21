@@ -8,7 +8,7 @@
 
 - **Brief Explanation**: The Finite Elements Method (FEM) has been developed in the 20th century. It has been a crucial tool in the analisys of aircraft structures, in such a way that, nowadays, much of the work can be resumed to software utilization by specialists. However, knowing how the FEM algorithm works is mandatory in order to design and test reliable aircraft structural components. Therefore, in ITA, we are encouraged to implement specific versions of this algorithm ourselves.
 
-- - Mathematically, we use the core principles of Variational Calculus ($$ \delta \Pi = 0 $$) in order to reduce our structure problems to a specific equation: 
+- - Mathematically, we use the core principles of Variational Calculus in order to reduce our structure problems to a specific equation: 
 
 $$
 \textbf{K} \cdot \textbf{u} = \textbf{f}
