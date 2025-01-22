@@ -139,7 +139,7 @@ class Portico:
     def escreverSolucao(self, filename):
         parametrosNodais = self.solution
         with open(filename, 'w') as f:
-            f.write('Parametros Nodais: \n \n')
+            f.write('Node Displacements: \n \n')
             for i in range(len(parametrosNodais)):
                 if i % 3 == 0:
                     f.write(f'\n u{i + 1} = {parametrosNodais[i, 0]} m \n')
@@ -149,7 +149,7 @@ class Portico:
                     f.write(f' theta{i + 1} = {parametrosNodais[i, 0]} rad \n')
 
             for i in range(len(self.elementos)):
-                f.write(f'\n Elemento {i + 1} \n')
+                f.write(f'\n Bar element forces {i + 1} \n')
                 f.write(f'N = {round(self.elementos[i].N / 1000, 3)} kN \n')
                 f.write(f'V = {round(self.elementos[i].V / 1000, 3)} kN \n')
                 f.write(f'M(L/2) = {round(self.elementos[i].M / 1000, 3)} kN.m \n')
