@@ -1,4 +1,4 @@
-Parametros Nodais: 
+Node Displacements: 
  
 
  u1 = 0.0 m 
@@ -85,102 +85,102 @@ Parametros Nodais:
  v62 = 0.00020580271019545815 m 
  theta63 = -0.0008022179102376199 rad 
 
- Elemento 1 
+ Bar element forces 1 
 N = 0.0 kN 
 V = -203.024 kN 
 M(L/2) = -152.824 kN.m 
 
- Elemento 2 
+ Bar element forces 2 
 N = 0.0 kN 
 V = -155.792 kN 
 M(L/2) = -54.233 kN.m 
 
- Elemento 3 
+ Bar element forces 3 
 N = 0.0 kN 
 V = -110.830 kN 
 M(L/2) = 19.005 kN.m 
 
- Elemento 4 
+ Bar element forces 4 
 N = 0.0 kN 
 V = -68.136 kN 
 M(L/2) = 68.137 kN.m 
 
- Elemento 5 
+ Bar element forces 5 
 N = 0.0 kN 
 V = -27.711 kN 
 M(L/2) = 94.412 kN.m 
 
- Elemento 6 
+ Bar element forces 6 
 N = 0.0 kN 
 V = 10.445 kN 
 M(L/2) = 99.077 kN.m 
 
- Elemento 7 
+ Bar element forces 7 
 N = 0.0 kN 
 V = 46.333 kN 
 M(L/2) = 83.380 kN.m 
 
- Elemento 8 
+ Bar element forces 8 
 N = 0.0 kN 
 V = 79.951 kN 
 M(L/2) = 48.569 kN.m 
 
- Elemento 9 
+ Bar element forces 9 
 N = 0.0 kN 
 V = 111.301 kN 
 M(L/2) = -4.109 kN.m 
 
- Elemento 10 
+ Bar element forces 10 
 N = 0.0 kN 
 V = 140.383 kN 
 M(L/2) = -73.406 kN.m 
 
- Elemento 11 
+ Bar element forces 11 
 N = 0.0 kN 
 V = -92.414 kN 
 M(L/2) = -101.479 kN.m 
 
- Elemento 12 
+ Bar element forces 12 
 N = 0.0 kN 
 V = -80.695 kN 
 M(L/2) = -79.849 kN.m 
 
- Elemento 13 
+ Bar element forces 13 
 N = 0.0 kN 
 V = -69.445 kN 
 M(L/2) = -61.089 kN.m 
 
- Elemento 14 
+ Bar element forces 14 
 N = 0.0 kN 
 V = -58.664 kN 
 M(L/2) = -45.083 kN.m 
 
- Elemento 15 
+ Bar element forces 15 
 N = 0.0 kN 
 V = -48.352 kN 
 M(L/2) = -31.714 kN.m 
 
- Elemento 16 
+ Bar element forces 16 
 N = 0.0 kN 
 V = -38.508 kN 
 M(L/2) = -20.864 kN.m 
 
- Elemento 17 
+ Bar element forces 17 
 N = 0.0 kN 
 V = -29.133 kN 
 M(L/2) = -12.417 kN.m 
 
- Elemento 18 
+ Bar element forces 18 
 N = 0.0 kN 
 V = -20.227 kN 
 M(L/2) = -6.255 kN.m 
 
- Elemento 19 
+ Bar element forces 19 
 N = 0.0 kN 
 V = -11.789 kN 
 M(L/2) = -2.261 kN.m 
 
- Elemento 20 
+ Bar element forces 20 
 N = 0.0 kN 
 V = -3.820 kN 
 M(L/2) = -0.317 kN.m 
