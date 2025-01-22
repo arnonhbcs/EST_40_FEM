@@ -2,6 +2,7 @@ import numpy as np
 from Node import No
 from Element import Elemento
 from Frame import Portico
+import matplotlib.pyplot as plt
 
 E = 200 * 10 ** 9 # Young Modulus
 # Structure dimensions
@@ -20,8 +21,8 @@ EI = E * I
 # i
 nos = []
 elementos = []
-num1 = 3  # numero de elementos finitos antes do apoio
-num2 = 3  # numero de elementos finitos depois do apoio
+num1 = 10  # split the bar into 10 elements
+num2 = 10  # split the bar into 10 elements
 x1 = np.linspace(0, 5.5, num1 + 1)
 x2 = np.linspace(5.5, 5.5 + 2.5, num2 + 1)
 x = np.concatenate((x1, x2[1:]))
@@ -53,3 +54,4 @@ portico.calcularParametrosNodais()
 portico.posProcessamento()
 filename = 'exemplo_1.txt'
 portico.escreverSolucao(filename)
+

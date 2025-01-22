@@ -78,7 +78,7 @@ class Elemento:
         p1, p2 = self.p1, self.p2
         q1, q2 = self.q1, self.q2
 
-        # truss Stiffness matrix
+        # truss linear interpolation and stiffness matrix
 
         phi_a = (1-x/L)
         phi_b = x/L
@@ -92,7 +92,7 @@ class Elemento:
         f_viga = sp.Matrix(np.zeros((6, 1)))
         p = p1 + (p2 - p1) * x / L
 
-        # Beam Stiffness Matrix
+        # Beam cubic interpolation and stiffness Matrix
 
         phi1 = (2 / L ** 3) * x ** 3 - (3 / L ** 2) * x ** 2 + 1
         phi2 = (1 / L ** 2) * x ** 3 - (2 / L) * x ** 2 + x
@@ -104,7 +104,7 @@ class Elemento:
         f_viga[4] += sp.integrate(phi3 * p, (x, 0, L))
         f_viga[5] += sp.integrate(phi4 * p, (x, 0, L))
 
-        
+
         self.f = self.R * (f_viga + f_trelica)
 
 
