@@ -12,10 +12,12 @@
 - **Brief Explanation**:  
   The Finite Element Method (FEM), developed in the 20th century, is a fundamental tool in analyzing aircraft structures. Today, much of this work relies on specialized software. However, understanding the underlying algorithm is essential for designing and validating reliable structural components. At ITA, students are encouraged to implement custom versions of the FEM algorithm to solidify their understanding.
 
-  Mathematically, FEM leverages principles from variational calculus to reduce structural problems to the following equation:  
+  Mathematically, FEM leverages principles from variational calculus to reduce structural problems to the following equation:
+  
   $$
   \textbf{K} \cdot \textbf{u} = \textbf{f}
-  $$  
+  $$
+  
   Here:  
   - **u**: Displacement vector of each node  
   - **f**: Force vector of each node  
